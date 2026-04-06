@@ -6,378 +6,69 @@
     <title>MyVoice Support</title>
     <meta
       name="description"
-      content="Support page for the MyVoice app, including contact details, troubleshooting help, and account assistance."
+      content="Support page for the MyVoice app."
     />
     <style>
-      :root {
-        --bg: #f4efe6;
-        --bg-accent: #fff8ee;
-        --card: rgba(255, 252, 247, 0.9);
-        --text: #172127;
-        --muted: #56636c;
-        --line: rgba(23, 33, 39, 0.12);
-        --brand: #0f7b6c;
-        --brand-deep: #125d70;
-        --brand-soft: #dbf2eb;
-        --warm: #ef8f45;
-        --shadow: 0 20px 50px rgba(25, 43, 51, 0.12);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
-        color: var(--text);
-        background:
-          radial-gradient(circle at top left, rgba(239, 143, 69, 0.18), transparent 30%),
-          radial-gradient(circle at top right, rgba(15, 123, 108, 0.18), transparent 34%),
-          linear-gradient(180deg, var(--bg-accent) 0%, var(--bg) 100%);
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #222;
+        background: #f7f7f7;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 32px;
+        background: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+      }
+
+      h1,
+      h2 {
+        margin-top: 0;
+        color: #111;
       }
 
       a {
-        color: var(--brand-deep);
+        color: #0a66c2;
       }
 
-      .page {
-        width: min(1100px, calc(100% - 32px));
-        margin: 0 auto;
-        padding: 32px 0 56px;
+      ul {
+        padding-left: 20px;
       }
 
-      .hero {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid var(--line);
-        border-radius: 28px;
-        padding: 28px;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 249, 240, 0.96)),
-          var(--card);
-        box-shadow: var(--shadow);
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: auto -50px -60px auto;
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(15, 123, 108, 0.16), transparent 70%);
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 16px;
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: var(--brand-soft);
-        color: var(--brand-deep);
-        font: 700 0.8rem/1.1 Arial, Helvetica, sans-serif;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .hero h1 {
-        margin: 0;
-        max-width: 10ch;
-        font-size: clamp(2.5rem, 8vw, 4.8rem);
-        line-height: 0.94;
-      }
-
-      .hero p {
-        max-width: 620px;
-        margin: 18px 0 0;
-        font: 400 1.05rem/1.7 Arial, Helvetica, sans-serif;
-        color: var(--muted);
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
+      .small {
         margin-top: 24px;
-      }
-
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 46px;
-        padding: 0 18px;
-        border-radius: 999px;
-        border: 1px solid transparent;
-        text-decoration: none;
-        font: 700 0.95rem/1 Arial, Helvetica, sans-serif;
-      }
-
-      .button.primary {
-        background: var(--brand);
-        color: #ffffff;
-      }
-
-      .button.secondary {
-        border-color: var(--line);
-        background: rgba(255, 255, 255, 0.75);
-        color: var(--text);
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 18px;
-        margin-top: 18px;
-      }
-
-      .card {
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        padding: 24px;
-        background: var(--card);
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(6px);
-      }
-
-      .card h2 {
-        margin: 0 0 12px;
-        font-size: 1.55rem;
-      }
-
-      .card h3 {
-        margin: 0 0 8px;
-        font-size: 1.02rem;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-
-      .card p,
-      .card li,
-      .card dt,
-      .card dd {
-        font: 400 0.98rem/1.7 Arial, Helvetica, sans-serif;
-        color: var(--muted);
-      }
-
-      .card ul {
-        margin: 0;
-        padding-left: 18px;
-      }
-
-      .contact-box {
-        padding: 16px 18px;
-        border-radius: 18px;
-        background: linear-gradient(180deg, rgba(219, 242, 235, 0.95), rgba(255, 255, 255, 0.82));
-        border: 1px solid rgba(15, 123, 108, 0.18);
-      }
-
-      .contact-box strong {
-        display: block;
-        margin-bottom: 8px;
-        font: 700 0.82rem/1 Arial, Helvetica, sans-serif;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--brand-deep);
-      }
-
-      dl {
-        margin: 0;
-      }
-
-      dt {
-        margin-top: 14px;
-        font-weight: 700;
-        color: var(--text);
-      }
-
-      dd {
-        margin: 4px 0 0;
-      }
-
-      .faq-list {
-        display: grid;
-        gap: 14px;
-      }
-
-      .faq-item {
-        padding: 16px 0 0;
-        border-top: 1px solid var(--line);
-      }
-
-      .faq-item:first-child {
-        padding-top: 0;
-        border-top: 0;
-      }
-
-      .footer {
-        margin-top: 18px;
-        padding: 18px 22px;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.7);
-        font: 400 0.92rem/1.6 Arial, Helvetica, sans-serif;
-        color: var(--muted);
-      }
-
-      .pill-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 18px;
-      }
-
-      .pill {
-        padding: 9px 12px;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.72);
-        font: 700 0.82rem/1 Arial, Helvetica, sans-serif;
-        color: var(--text);
-      }
-
-      .accent {
-        color: var(--warm);
-      }
-
-      @media (max-width: 860px) {
-        .grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hero {
-          padding: 22px;
-        }
-
-        .card {
-          padding: 20px;
-        }
+        font-size: 0.9rem;
+        color: #666;
       }
     </style>
   </head>
   <body>
-    <main class="page">
-      <section class="hero">
-        <div class="eyebrow">MyVoice App Support</div>
-        <h1>Help for every voice.</h1>
-        <p>
-          MyVoice is designed to make communication faster, clearer, and more personal.
-          If you need help with your account, speech tools, saved content, or general app
-          troubleshooting, this page is the official support contact for App Store review and
-          for users after launch.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="mailto:myvoicemobileapp@gmail.com">Email Support</a>
-          <a class="button secondary" href="#faq">View FAQ</a>
-        </div>
-        <div class="pill-row">
-          <span class="pill">iPhone and iPad</span>
-          <span class="pill">Speech Tools</span>
-          <span class="pill">Account Help</span>
-          <span class="pill">App Troubleshooting</span>
-        </div>
-      </section>
+    <div class="container">
+      <h1>MyVoice Support</h1>
+      <p>
+        If you need help with the MyVoice app, please contact us at
+        <a href="mailto:myvoicemobileapp@gmail.com">myvoicemobileapp@gmail.com</a>.
+      </p>
 
-      <section class="grid" aria-label="Support details">
-        <article class="card">
-          <h2>Contact Support</h2>
-          <div class="contact-box">
-            <strong>Public Support Email</strong>
-            <p style="margin: 0;">
-              Users and App Store reviewers can contact support at
-              <a href="mailto:myvoicemobileapp@gmail.com">myvoicemobileapp@gmail.com</a>.
-            </p>
-          </div>
-          <dl>
-            <dt>Email</dt>
-            <dd>
-              <a href="mailto:myvoicemobileapp@gmail.com">myvoicemobileapp@gmail.com</a>
-            </dd>
-            <dt>Typical Response Time</dt>
-            <dd>Within 2 business days</dd>
-            <dt>What to Include</dt>
-            <dd>
-              Your device model, iOS version, app version, and a short description of the issue.
-            </dd>
-            <dt>Support Topics</dt>
-            <dd>
-              Sign-in problems, password reset, speech recognition issues, saved board or card
-              issues, and general app questions.
-            </dd>
-          </dl>
-        </article>
+      <h2>What We Can Help With</h2>
+      <ul>
+        <li>Account and login issues</li>
+        <li>Password reset help</li>
+        <li>Speech or microphone issues</li>
+        <li>Bug reports and general questions</li>
+      </ul>
 
-        <article class="card">
-          <h2>Quick Help</h2>
-          <ul>
-            <li>Check that microphone permissions are enabled if speech input is not working.</li>
-            <li>Use the password reset flow if you cannot access your account.</li>
-            <li>Make sure your internet connection is active for login and cloud sync features.</li>
-            <li>Restart the app after changing device permissions.</li>
-            <li>Include screenshots when reporting layout or content issues.</li>
-          </ul>
-        </article>
-      </section>
+      <h2>When You Contact Support</h2>
+      <p>
+        Please include your device model, iOS version, app version, and a short description of the issue.
+      </p>
 
-      <section class="grid" id="faq" aria-label="Frequently asked questions">
-        <article class="card">
-          <h2>Frequently Asked Questions</h2>
-          <div class="faq-list">
-            <div class="faq-item">
-              <h3>I forgot my password. What should I do?</h3>
-              <p>
-                Use the password reset option in the app. If you do not receive the reset email,
-                check your spam or junk folder and then contact support.
-              </p>
-            </div>
-            <div class="faq-item">
-              <h3>Why is speech recognition not working?</h3>
-              <p>
-                Confirm that microphone and speech recognition permissions are enabled in iOS
-                Settings. A stable connection may also be required depending on your setup.
-              </p>
-            </div>
-            <div class="faq-item">
-              <h3>My content is missing or not syncing.</h3>
-              <p>
-                Sign out and back in, then confirm you are using the correct account. If the issue
-                continues, contact support with the email address tied to the account.
-              </p>
-            </div>
-            <div class="faq-item">
-              <h3>How do I report a bug or request a feature?</h3>
-              <p>
-                Send a short description of the problem or feature request to the support email.
-                Clear reproduction steps help speed up review.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <h2>About MyVoice</h2>
-          <p>
-            <span class="accent">MyVoice</span> is an AAC-focused communication app built to help
-            users express themselves through customizable words, groups, and speech tools in a
-            simple interface.
-          </p>
-          <p>
-            This support page exists so App Store reviewers and end users have a direct, public
-            place to get help with the app.
-          </p>
-        </article>
-      </section>
-
-      <footer class="footer">
-        Last updated: April 6, 2026. If you host this with GitHub Pages, this file can be served
-        directly from the repository's <code>docs</code> folder.
-      </footer>
-    </main>
+      <p class="small">Last updated: April 6, 2026</p>
+    </div>
   </body>
 </html>
